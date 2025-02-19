@@ -31,7 +31,6 @@
 #### ErrorBoundaryClass
 
 - React의 Error Boundary 기능을 구현한 클래스 컴포넌트
-- `getDerivedStateFromError`: 에러 발생 시 상태 업데이트
 - `componentDidCatch`: 에러 발생 시 모달 표시
 
 #### ModalProvider
