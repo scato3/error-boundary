@@ -1,0 +1,45 @@
+.dimmed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  width: 410px;
+  padding: 32px 40px 40px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  position: relative;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: blue;
+}
+
+.message {
+  margin-top: 13px;
+  font-size: 16px;
+  color: red;
+}
+
+.button {
+  margin-top: 32px;
+  width: 92px;
+  padding: 11px 0;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: blue;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+}
