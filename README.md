@@ -22,9 +22,9 @@
 
 #### 일반 Axios 요청 에러 (getPosts2)
 
-1. try-catch로 감싸지 않은 경우, 에러는 React의 이벤트 핸들러에서 캐치됨
-2. ErrorBoundary는 렌더링 과정의 에러만 캐치하므로 이 에러는 감지하지 못함
-3. 별도의 에러 처리 로직이 필요
+1. `try-catch`로 감싸서 axios 에러를 잡고 CustomError 형태로 변환하여 throw
+2. 하지만 일반 비동기 함수의 에러는 React의 렌더링 사이클 밖에서 발생하므로 ErrorBoundary가 감지하지 못함
+3. React Query는 내부적으로 비동기 에러를 렌더링 사이클로 가져오기 때문에 ErrorBoundary가 감지할 수 있음
 
 ### 3. 주요 컴포넌트 역할
 
@@ -55,14 +55,14 @@ interface CustomError {
 
 ### 5. 제한사항
 
-1. ErrorBoundary는 다음 상황의 에러를 캐치하지 못함:
+1. ErrorBoundary는 기본적으로 다음 상황의 에러를 캐치하지 못함:
 
-   - 이벤트 핸들러
-   - 비동기 코드 (async/await)
-   - 서버 사이드 렌더링
+   - 일반적인 이벤트 핸들러 내부의 에러
+   - 일반적인 비동기 코드 (async/await)의 에러
+   - 서버 사이드 렌더링 중의 에러
    - ErrorBoundary 자체의 에러
 
-2. 이러한 에러들은 다음과 같이 처리해야 함:
-   - try-catch 사용
-   - .catch() 메서드 사용
-   - 별도의 에러 핸들링 로직 구현
+2. 하지만 다음 경우는 예외적으로 캐치 가능:
+
+   - React Query의 mutation 에러 (`throwOnError: true` 설정 시)
+   - 렌더링 과정에서 발생하는 동기적인 에러
