@@ -1,7 +1,7 @@
 "use client";
 
 import { Component, ReactNode } from "react";
-import { useModal } from "@/app/providers/modal-provider";
+import { useModal } from "@/providers/modal-provider";
 
 interface Props {
   children: ReactNode;

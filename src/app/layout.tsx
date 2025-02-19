@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ModalProvider } from "./providers/modal-provider";
-import QueryProvider from "./providers/query-provider";
+import { ModalProvider } from "../providers/modal-provider";
+import QueryProvider from "../providers/query-provider";
 import { ErrorBoundary } from "@/components/error-boundary";
 
 export const metadata: Metadata = {
